@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    
     public float speed = 10f;
     // Start is called before the first frame update
     void Start()
@@ -12,7 +13,7 @@ public class Player : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
          Vector3 pos = transform.position;
         if (Input.GetKey(KeyCode.W))
