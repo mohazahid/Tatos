@@ -6,12 +6,12 @@ public class PlayerCam : MonoBehaviour
 {
     public Transform player;
     public BoxCollider2D mapBounds;
-
+    public Camera mainCam;
     private float xMin, xMax, yMin, yMax;
     private float camY,camX;
     private float camOrthsize;
     private float cameraRatio;
-    private Camera mainCam;
+    
     // Start is called before the first frame update
     void Start()
     {

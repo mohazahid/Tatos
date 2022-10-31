@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4850683407158990403}
   - component: {fileID: 4850683407158990405}
   - component: {fileID: 4850683407158990402}
-  - component: {fileID: 4850683407158990404}
   - component: {fileID: 4850683407158990407}
+  - component: {fileID: -6889102587693421975}
   m_Layer: 5
   m_Name: POV
   m_TagString: Untagged
@@ -78,18 +78,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4850683407158990404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4850683407158990400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da459ca05002da342b8b792b767cdaf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &4850683407158990407
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -142,3 +130,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-6889102587693421975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4850683407158990400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da459ca05002da342b8b792b767cdaf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 4850683407158990402}

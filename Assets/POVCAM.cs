@@ -1,32 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class POVCAM : MonoBehaviour
 {
+    public Image image;
+    public Image Flash;
+    private bool img;
     // Start is called before the first frame update
     void Start()
     {
-        Color color = GetComponent<Renderer>().material.color;
-        color.a -= 0.1f;
-        GetComponent<Renderer>().material.SetColor("_Color", color);
+    image = GetComponent<Image>();
+    img = true;
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown("space")) {
-            GetComponent<Renderer>().material.SetAlpha(GetComponent<Renderer>().material.color.a - .25F);
+    void Update() {        
+        image.enabled = img;
+        Flash.enabled = !img;
+        if (Input.GetKeyDown(KeyCode.F)) {
+            img = img ? false : true;
         }
     }
 }
-    public static class ExtensionMethods
-    {
-    public static void SetAlpha(this Material material, float value)
-    {
-        Color color = material.color;
-        color.a = value;
-        material.color = color;
-    }
-}
-
