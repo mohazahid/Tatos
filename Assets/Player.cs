@@ -4,54 +4,38 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public Camera PlayerCamera;
-    private Vector2 screenBounds;
-    private float objectWidth;
-    private float objectHeight;
-    public float speed = 10f;
     public double times = .2;
     public GameObject prefab;
 
-    
-    // Start is called before the first frame update
+        // Add the variables
+    public float speed = 100f; // Speed variable
+    public Rigidbody2D rb; // Set the variable 'rb' as Rigibody
+    public Vector2 movement; // Set the variable 'movement' as a Vector3 (x,y,z)
+ 
+    // 'Start' Method run once at start for initialisation purposes
     void Start()
     {
-        screenBounds = PlayerCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, PlayerCamera.transform.position.z));
-        objectWidth = transform.GetComponent<SpriteRenderer>().bounds.extents.x; //extents = size of width / 2
-        objectHeight = transform.GetComponent<SpriteRenderer>().bounds.extents.y; //extents = size of height / 2
+        // find the Rigidbody of this game object and add it to the variable 'rb'
+        rb = this.GetComponent<Rigidbody2D>();
     }
-
-    // Update is called once per frame
+ 
+ 
+    // 'Update' Method is called once per frame
+    void Update()
+    {
+        // In Update we get the Input for left, right, up and down and put it in the variable 'movement'...
+        // We only get the input of x and z, y is left at 0 as it's not required
+        // 'Normalized' diagonals to prevent faster movement when two inputs are used together
+        movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+    }
+ 
+    // 'FixedUpdate' Method is used for Physics movements
     void FixedUpdate()
     {
-        Vector3 pos = transform.position;
-        if (Input.GetKey(KeyCode.W))
-        {
-            pos.y += speed * Time.deltaTime;
-        }
-
-        if (Input.GetKey(KeyCode.S))
-        {
-            pos.y -= speed * Time.deltaTime;
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            pos.x += speed * Time.deltaTime;
-        }
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            pos.x -= speed * Time.deltaTime;
-        }
-        transform.position = pos;
-         if(Input.GetKey("space"))
-        {
-            EggShoot();
-        }
-
-        
+        rb.MovePosition(rb.position + (movement * speed * Time.deltaTime));
     }
+ 
+ 
 
     void EggShoot() {
         times -= 1 * Time.deltaTime;
@@ -59,16 +43,5 @@ public class Player : MonoBehaviour
             Instantiate(prefab, transform.position + (transform.forward*2), transform.rotation);
             times = .2f;
         }
-    }
-    /// <summary>
-    /// LateUpdate is called every frame, if the Behaviour is enabled.
-    /// It is called after all Update functions have been called.
-    /// </summary>
-    void LateUpdate()
-    {
-        Vector3 viewPos = transform.position;
-        viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x * -1 + objectWidth, screenBounds.x - objectWidth);
-        viewPos.y = Mathf.Clamp(viewPos.y, screenBounds.y * -1 + objectHeight, screenBounds.y - objectHeight);
-        transform.position = viewPos;
     }
 }
