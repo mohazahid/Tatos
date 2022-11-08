@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     private float objectWidth;
     private float objectHeight;
     public float speed = 10f;
+    public double times = .2;
+    public GameObject prefab;
 
     
     // Start is called before the first frame update
@@ -43,6 +45,20 @@ public class Player : MonoBehaviour
             pos.x -= speed * Time.deltaTime;
         }
         transform.position = pos;
+         if(Input.GetKey("space"))
+        {
+            EggShoot();
+        }
+
+        
+    }
+
+    void EggShoot() {
+        times -= 1 * Time.deltaTime;
+        if(times <= 0){
+            Instantiate(prefab, transform.position + (transform.forward*2), transform.rotation);
+            times = .2f;
+        }
     }
     /// <summary>
     /// LateUpdate is called every frame, if the Behaviour is enabled.
