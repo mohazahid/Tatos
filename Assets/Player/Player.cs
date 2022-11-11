@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     public double times = .2;
     public GameObject prefab;
+    Animator anim;
 
         // Add the variables
     public float speed = 100f; // Speed variable
@@ -17,6 +18,7 @@ public class Player : MonoBehaviour
     {
         // find the Rigidbody of this game object and add it to the variable 'rb'
         rb = this.GetComponent<Rigidbody2D>();
+        anim = this.GetComponent<Animator>();
     }
  
  
@@ -27,6 +29,15 @@ public class Player : MonoBehaviour
         // We only get the input of x and z, y is left at 0 as it's not required
         // 'Normalized' diagonals to prevent faster movement when two inputs are used together
         movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        float input_x = Input.GetAxisRaw("Horizontal");
+        float input_y = Input.GetAxisRaw("Vertical");
+        bool Walking = (Mathf.Abs(input_x) + Mathf.Abs(input_y)) > 0;
+
+        anim.SetBool("Walking",Walking);
+        if (Walking) {
+            anim.SetFloat("x", input_x);
+            anim.SetFloat("y", input_y);
+        }
     }
  
     // 'FixedUpdate' Method is used for Physics movements
