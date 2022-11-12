@@ -43,11 +43,11 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
-  spriteMeshType: 0
+  spriteExtrude: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 0.32
+  spritePixelsToUnits: 0.316
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -41272,13 +41272,13 @@ TextureImporter:
       base_out_atlas_1625: 1917016732
       base_out_atlas_641: -695954017
       base_out_atlas_853: -1483332305
-      base_out_atlas_478: 1044666635
+      base_out_atlas_1219: -1269887851
       base_out_atlas_1116: -1773452570
       base_out_atlas_1408: 1065160061
-      base_out_atlas_1219: -1269887851
+      base_out_atlas_403: 1907691302
       base_out_atlas_1203: 1439464587
       base_out_atlas_1500: 17572149
-      base_out_atlas_403: 1907691302
+      base_out_atlas_478: 1044666635
       base_out_atlas_1410: -474502144
       base_out_atlas_523: 136276477
       base_out_atlas_551: 908513391
@@ -41355,7 +41355,7 @@ TextureImporter:
       base_out_atlas_815: -2064420531
       base_out_atlas_794: -1391183044
       base_out_atlas_1615: 1458159298
-      base_out_atlas_1924: 317340426
+      base_out_atlas_874: -912782591
       base_out_atlas_82: 1726109817
       base_out_atlas_572: -1484021674
       base_out_atlas_8: -1832213781
@@ -41363,7 +41363,7 @@ TextureImporter:
       base_out_atlas_1082: 459292924
       base_out_atlas_1443: -2057967403
       base_out_atlas_1671: -1517499270
-      base_out_atlas_874: -912782591
+      base_out_atlas_1924: 317340426
       base_out_atlas_422: -3172393
       base_out_atlas_1679: 181191652
       base_out_atlas_338: 1142585573
