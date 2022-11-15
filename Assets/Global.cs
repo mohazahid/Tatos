@@ -17,7 +17,8 @@ public class Global : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //remaining = GameObject.FindGameObjectsWithTag("Collectible");
-        statText.SetText("Collected: " + (8) + "/8");
+        remaining = GameObject.FindGameObjectsWithTag("Collectible");
+        
+        statText.SetText("Collected: " + (8-remaining.Length) + "/8");
     }
 }

@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 61666545}
   m_Layer: 0
   m_Name: FinalKingPotato
-  m_TagString: Untagged
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -789,7 +789,7 @@ GameObject:
   - component: {fileID: 274982310}
   m_Layer: 0
   m_Name: SombraPotato
-  m_TagString: Untagged
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2337,7 +2337,7 @@ GameObject:
   - component: {fileID: 609184397}
   m_Layer: 0
   m_Name: AmongMarioPotato
-  m_TagString: Untagged
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3280,7 +3280,7 @@ GameObject:
   - component: {fileID: 886540088}
   m_Layer: 0
   m_Name: CloudPotato
-  m_TagString: Untagged
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3434,7 +3434,7 @@ GameObject:
   - component: {fileID: 1009751684}
   m_Layer: 0
   m_Name: earthMage
-  m_TagString: Untagged
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4236,7 +4236,7 @@ GameObject:
   - component: {fileID: 1156455728}
   m_Layer: 0
   m_Name: VegataPotato
-  m_TagString: Untagged
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5465,7 +5465,7 @@ GameObject:
   - component: {fileID: 1336405464}
   m_Layer: 0
   m_Name: LinkPotato
-  m_TagString: Untagged
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5870,7 +5870,7 @@ GameObject:
   - component: {fileID: 1354298021}
   m_Layer: 0
   m_Name: firePrincesPotato
-  m_TagString: Untagged
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
