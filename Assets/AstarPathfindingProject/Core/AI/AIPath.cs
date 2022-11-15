@@ -195,7 +195,6 @@ namespace Pathfinding {
 				return true;
 			}
 		}
-
 		/// <summary>\copydoc Pathfinding::IAstarAI::reachedEndOfPath</summary>
 		public bool reachedEndOfPath { get; protected set; }
 
@@ -330,7 +329,6 @@ namespace Pathfinding {
 				OnTargetReached();
 			}
 		}
-
 		protected override void ClearPath () {
 			CancelCurrentPathRequest();
 			if (path != null) path.Release(this);
@@ -338,7 +336,7 @@ namespace Pathfinding {
 			interpolator.SetPath(null);
 			reachedEndOfPath = false;
 		}
-
+		
 		/// <summary>Called during either Update or FixedUpdate depending on if rigidbodies are used for movement or not</summary>
 		protected override void MovementUpdateInternal (float deltaTime, out Vector3 nextPosition, out Quaternion nextRotation) {
 			float currentAcceleration = maxAcceleration;
@@ -370,7 +368,7 @@ namespace Pathfinding {
 
 			// Normalized direction of where the agent is looking
 			var forwards = movementPlane.ToPlane(simulatedRotation * (orientation == OrientationMode.YAxisForward ? Vector3.up : Vector3.forward));
-
+  
 			// Check if we have a valid path to follow and some other script has not stopped the character
 			bool stopped = isStopped || (reachedDestination && whenCloseToDestination == CloseToDestinationMode.Stop);
 			if (interpolator.valid && !stopped) {
@@ -488,4 +486,5 @@ namespace Pathfinding {
 			return base.OnUpgradeSerializedData(version, unityThread);
 		}
 	}
+
 }

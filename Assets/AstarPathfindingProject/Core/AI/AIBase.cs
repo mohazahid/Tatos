@@ -396,7 +396,10 @@ namespace Pathfinding {
 			if (updatePosition) tr.position = newPosition;
 			if (clearPath) SearchPath();
 		}
-
+		/// <summary>
+		/// OnTriggerEnter is called when the Collider other enters the trigger.
+		/// </summary>
+		/// <param name="other">The other Collider involved in this collision.</param>
 		protected void CancelCurrentPathRequest () {
 			waitingForPathCalculation = false;
 			// Abort calculation of the current path
