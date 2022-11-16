@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class onOff : MonoBehaviour
 {
-
+	GameObject[] LanturnCheck;
 	Vector3 mouse_pos;
 	public GameObject[] objects;
     private GameObject lightObject;
@@ -20,9 +20,12 @@ public class onOff : MonoBehaviour
 	// Update is called once per frame
 	void Update () {
 		// Toggle light on/off when L key is pressed.
-		if (Input.GetKeyDown("f")) {
+		LanturnCheck = GameObject.FindGameObjectsWithTag("Lanturn");
+		if (Input.GetKeyDown("f") && LanturnCheck.Length >= 1) {
 			light.enabled = !light.enabled;
-		}
+		} else if (Input.GetKeyDown("f")){
+			light.enabled = true;
+		}	
 
 	}
 	 void FixedUpdate()

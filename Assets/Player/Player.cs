@@ -1,17 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;   
 
 public class Player : MonoBehaviour
 {
     public double times = .2;
     Animator anim;
-    private int rockCount = 0;  
+    public int rockCount;  
     private int rockCountMax = 5;
     private int Health = 100;
     public int maxHealth = 100;
     public int currentHealth;
-
+    public TMP_Text RockValue;
     public HealthBar healthBar;
         // Add the variables
     private float speed = 75f; // Speed variable
@@ -26,6 +28,8 @@ public class Player : MonoBehaviour
         anim = this.GetComponent<Animator>();
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        rockCount=3; 
+        RockValue.text = rockCount.ToString()+ "/5";
     }
  
  
@@ -39,7 +43,7 @@ public class Player : MonoBehaviour
         float input_x = Input.GetAxisRaw("Horizontal");
         float input_y = Input.GetAxisRaw("Vertical");
         bool Walking = (Mathf.Abs(input_x) + Mathf.Abs(input_y)) > 0;
-
+        RockValue.text = rockCount.ToString()+ "/5";
         anim.SetBool("Walking",Walking);
         if (Walking) {
             anim.SetFloat("x", input_x);
@@ -53,9 +57,9 @@ public class Player : MonoBehaviour
         rb.MovePosition(rb.position + (movement * speed * Time.deltaTime));
     }
     private void OnTriggerEnter2D(Collider2D other) {
-       if (other.gameObject.tag == "Rock") {
-           rockCount++;
-           if (rockCount >= rockCountMax) {
+       if (other.gameObject.tag == "SpawningRock") {
+           if (rockCount < rockCountMax) {
+            rockCount++;
            }
        } 
        if (other.gameObject.tag == "Enemy") {
