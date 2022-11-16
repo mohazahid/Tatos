@@ -2,19 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;   
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     public double times = .2;
+    int randInt;
     Animator anim;
-    public int rockCount;  
+    public int rockCount;
     private int rockCountMax = 5;
     private int Health = 100;
+    private AudioSource playerSound;
     public int maxHealth = 100;
     public int currentHealth;
     public TMP_Text RockValue;
     public HealthBar healthBar;
+    public AudioClip[] footsteps;
         // Add the variables
     private float speed = 75f; // Speed variable
     public Rigidbody2D rb; // Set the variable 'rb' as Rigibody
@@ -30,6 +33,7 @@ public class Player : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
         rockCount=3; 
         RockValue.text = rockCount.ToString()+ "/5";
+        playerSound = GetComponent<AudioSource>();
     }
  
  
@@ -48,6 +52,19 @@ public class Player : MonoBehaviour
         if (Walking) {
             anim.SetFloat("x", input_x);
             anim.SetFloat("y", input_y);
+
+            // play footsteps
+            playerSound.enabled = true;
+            if (!playerSound.isPlaying)
+            {
+                randInt = Random.Range(0, footsteps.Length);
+                playerSound.clip = footsteps[randInt];
+                playerSound.Play();
+            }
+        } 
+        else
+        {
+            playerSound.enabled = false;
         }
     }
  

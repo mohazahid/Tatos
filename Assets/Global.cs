@@ -11,12 +11,15 @@ public class Global : MonoBehaviour
     public TMP_Text statText;
 
     public GameObject Flashlight;
-    public GameObject Lanturn; 
+    public GameObject Lanturn;
+
+    public AudioClip[] ambient;
 
     // Start is called before the first frame update
     void Start()
     {
-       
+        GetComponent<AudioSource>().clip = ambient[0];
+        GetComponent<AudioSource>().Play();
     }
 
     // Update is called once per frame
@@ -36,6 +39,17 @@ public class Global : MonoBehaviour
         }
         
         statText.SetText((8-remaining.Length) + "/8");
+
+        //change ambient sound
+        if (remaining.Length <= 4)
+        {
+            GetComponent<AudioSource>().clip = ambient[1];
+
+            if (!GetComponent<AudioSource>().isPlaying)
+            {
+                GetComponent<AudioSource>().Play();
+            }
+        }
     }
 
     void LightChoice() {
