@@ -5,13 +5,17 @@ using TMPro;
 
 public class Global : MonoBehaviour
 {
-    GameObject[] remaining;
+    GameObject[] PotatoCount;
     GameObject[] LanturnCheck;
     bool FlashorLan = false;
     public TMP_Text statText;
+    private double msgTimer = 1f;
 
     public GameObject Flashlight;
-    public GameObject Lanturn; 
+    public GameObject Lanturn;
+    public GameObject FinalPotato; 
+    public GameObject Finalmsg;  
+    bool ranMsg = false; 
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +27,7 @@ public class Global : MonoBehaviour
     void Update()
     {
         LanturnCheck = GameObject.FindGameObjectsWithTag("Lanturn");  
-        remaining = GameObject.FindGameObjectsWithTag("Collectible");
+        PotatoCount = GameObject.FindGameObjectsWithTag("Collectible");
         if (LanturnCheck.Length == 0) {
             if(Input.GetKeyDown("f")) {
                 if (FlashorLan == false) {
@@ -34,8 +38,12 @@ public class Global : MonoBehaviour
                 LightChoice();
             }
         }
-        
-        statText.SetText((8-remaining.Length) + "/8");
+        if (PotatoCount.Length == 0 && !ranMsg) {
+            FinalPotato.SetActive(true);   
+            FinalMessage(); 
+            ranMsg = true;
+        }
+        statText.SetText((8-PotatoCount.Length) + "/8");
     }
 
     void LightChoice() {
@@ -47,4 +55,12 @@ public class Global : MonoBehaviour
             Lanturn.SetActive(false);   
         }   
     }
+    void FinalMessage() {
+        Finalmsg.SetActive(true);   
+        if (msgTimer == 0) {
+            Finalmsg.SetActive(false);   
+        } else {
+            msgTimer -= 1* Time.deltaTime; 
+        }
+    } 
 }
