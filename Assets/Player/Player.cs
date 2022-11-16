@@ -45,11 +45,6 @@ public class Player : MonoBehaviour
             anim.SetFloat("x", input_x);
             anim.SetFloat("y", input_y);
         }
-         if (Input.GetKeyDown(KeyCode.Space))
-        {
-            currentHealth -= 15;
-            healthBar.SetHealth(currentHealth);
-        }
     }
  
     // 'FixedUpdate' Method is used for Physics movements
@@ -64,7 +59,8 @@ public class Player : MonoBehaviour
            }
        } 
        if (other.gameObject.tag == "Enemy") {
-           Health -= 20;
+           currentHealth -= 20;
+           healthBar.SetHealth(currentHealth);
        }    
         if (Health <= 0) {
             // Game Over
