@@ -2,26 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;   
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
     public double times = .2;
-    private double HealthTimer =0;
+    private double HealthTimer = 0;
     Animator anim;
     GameObject[] PotatoCount;
-    public int rockCount;  
+    public int rockCount;
     private int rockCountMax = 5;
     public int maxHealth = 100;
     public int currentHealth;
     public TMP_Text RockValue;
     public HealthBar healthBar;
-        // Add the variables
+    // Add the variables
     private float speed = 50f; // Speed variable
     public Rigidbody2D rb; // Set the variable 'rb' as Rigibody
     public Vector2 movement; // Set the variable 'movement' as a Vector3 (x,y,z)
- 
+
     // 'Start' Method run once at start for initialisation purposes
     void Start()
     {
@@ -30,11 +30,11 @@ public class Player : MonoBehaviour
         anim = this.GetComponent<Animator>();
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-        rockCount=3; 
-        RockValue.text = rockCount.ToString()+ "/5";
+        rockCount = 3;
+        RockValue.text = rockCount.ToString() + "/5";
     }
- 
- 
+
+
     // 'Update' Method is called once per frame
     void Update()
     {
@@ -45,32 +45,37 @@ public class Player : MonoBehaviour
         float input_x = Input.GetAxisRaw("Horizontal");
         float input_y = Input.GetAxisRaw("Vertical");
         bool Walking = (Mathf.Abs(input_x) + Mathf.Abs(input_y)) > 0;
-        RockValue.text = rockCount.ToString()+ "/5";
+        RockValue.text = rockCount.ToString() + "/5";
         PotatoCount = GameObject.FindGameObjectsWithTag("Collectible");
-        if (PotatoCount.Length == 0) {
+        if (PotatoCount.Length == 0)
+        {
             SceneManager.LoadScene("WinScreen");
         }
-        anim.SetBool("Walking",Walking);
-        if (Walking) {
+        anim.SetBool("Walking", Walking);
+        if (Walking)
+        {
             anim.SetFloat("x", input_x);
             anim.SetFloat("y", input_y);
         }
-        
+
     }
- 
+
     // 'FixedUpdate' Method is used for Physics movements
     void FixedUpdate()
     {
         rb.MovePosition(rb.position + (movement * speed * Time.deltaTime));
     }
-    private void OnTriggerStay2D(Collider2D other) {
-      
-       if (other.gameObject.tag == "Enemy") {
-           TakeDamage();
-       }    
-        if (currentHealth <= 0) {
+    private void OnTriggerStay2D(Collider2D other)
+    {
+
+        if (other.gameObject.tag == "Enemy")
+        {
+            TakeDamage();
+        }
+        if (currentHealth <= 0)
+        {
             SceneManager.LoadScene("EndScreen");
-        }   
+        }
     }
     /// <summary>
     /// Sent when another object enters a trigger collider attached to this
@@ -79,19 +84,23 @@ public class Player : MonoBehaviour
     /// <param name="other">The other Collider2D involved in this collision.</param>
     void OnTriggerEnter2D(Collider2D other)
     {
-         if (other.gameObject.tag == "SpawningRock") {
-           if (rockCount < rockCountMax) {
-            rockCount++;
-           }
+        if (other.gameObject.tag == "SpawningRock")
+        {
+            if (rockCount < rockCountMax)
+            {
+                rockCount++;
+            }
         }
     }
 
 
-    private void TakeDamage() {
-        HealthTimer -= 1* Time.deltaTime;
-        if (HealthTimer <= 0) {
+    private void TakeDamage()
+    {
+        HealthTimer -= 1 * Time.deltaTime;
+        if (HealthTimer <= 0)
+        {
             currentHealth -= 10;
-            healthBar.SetHealth(currentHealth); 
+            healthBar.SetHealth(currentHealth);
             HealthTimer = .4;
         }
 

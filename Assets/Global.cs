@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;    
+using TMPro;
 
 public class Global : MonoBehaviour
 {
@@ -13,54 +13,84 @@ public class Global : MonoBehaviour
 
     public GameObject Flashlight;
     public GameObject Lanturn;
-    public GameObject FinalPotato; 
-    public GameObject Finalmsg;  
-    bool ranMsg = false; 
+    public GameObject FinalPotato;
+    public GameObject Finalmsg;
+    bool ranMsg = false;
+    int potatoCheck;
+    private int PotatoCounter = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-       
+        PotatoCount = GameObject.FindGameObjectsWithTag("Collectible");
+        potatoCheck = PotatoCount.Length;
     }
 
     // Update is called once per frame
     void Update()
     {
-        LanturnCheck = GameObject.FindGameObjectsWithTag("Lanturn");  
+        LanturnCheck = GameObject.FindGameObjectsWithTag("Lanturn");
         PotatoCount = GameObject.FindGameObjectsWithTag("Collectible");
-        if (LanturnCheck.Length == 0) {
-            if(Input.GetKeyDown("f")) {
-                if (FlashorLan == false) {
+        if (LanturnCheck.Length == 0)
+        {
+            if (Input.GetKeyDown("f"))
+            {
+                if (FlashorLan == false)
+                {
                     FlashorLan = true;
-                } else {
+                }
+                else
+                {
                     FlashorLan = false;
-                }   
+                }
                 LightChoice();
             }
         }
-        if (PotatoCount.Length == 0 && !ranMsg) {
-            FinalPotato.SetActive(true);   
-            FinalMessage(); 
+        if (PotatoCount.Length == 0)
+        {
+            PotatoCounter++;
+            potatoCheck = 1;
+        }
+        else
+        {
+            if (PotatoCount.Length != potatoCheck)
+            {
+                PotatoCounter++;
+                potatoCheck = PotatoCount.Length;
+            }
+        }
+        if (PotatoCount.Length == 0 && !ranMsg)
+        {
+            FinalPotato.SetActive(true);
+            FinalMessage();
             ranMsg = true;
         }
-        statText.SetText((8-PotatoCount.Length) + "/8");
+        statText.SetText(PotatoCounter + "/8");
     }
 
-    void LightChoice() {
-        if (FlashorLan == true) {
+    void LightChoice()
+    {
+        if (FlashorLan == true)
+        {
             Flashlight.SetActive(false);
-            Lanturn.SetActive(true); 
-        } else {
-            Flashlight.SetActive(true); 
-            Lanturn.SetActive(false);   
-        }   
-    }
-    void FinalMessage() {
-        Finalmsg.SetActive(true);   
-        if (msgTimer == 0) {
-            Finalmsg.SetActive(false);   
-        } else {
-            msgTimer -= 1* Time.deltaTime; 
+            Lanturn.SetActive(true);
         }
-    } 
+        else
+        {
+            Flashlight.SetActive(true);
+            Lanturn.SetActive(false);
+        }
+    }
+    void FinalMessage()
+    {
+        Finalmsg.SetActive(true);
+        if (msgTimer == 0)
+        {
+            Finalmsg.SetActive(false);
+        }
+        else
+        {
+            msgTimer -= 1 * Time.deltaTime;
+        }
+    }
 }
