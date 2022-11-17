@@ -419,7 +419,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1312476143}
-        m_TargetAssemblyTypeName: TryAgainMenu, Assembly-CSharp
+        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
         m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
@@ -1035,7 +1035,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1312476141}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65c7792ee3605c54dbc2cb8aeaecffa5, type: 3}
+  m_Script: {fileID: 11500000, guid: 23a3f53403189c647bd470c5ceb49157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1444640952
