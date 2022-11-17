@@ -20,6 +20,7 @@ public class SpeedChanger : MonoBehaviour
             aiPath.maxSpeed = 40;
             aiPath.maxAcceleration = 25;    
             stallTimer = 4;  
+            timer = 4;
         }
         else if (ToggleDifficulty.difficulty == "Normal"){
             aiPath.maxSpeed = 100;
@@ -41,7 +42,7 @@ public class SpeedChanger : MonoBehaviour
     {
         aiPath.maxSpeed = GlobalSpeed;
         PotatoCount = GameObject.FindGameObjectsWithTag("Collectible");
-        if (PotatoCount.Length == count) {
+        if (PotatoCount.Length != count) {
             count--;
             multiplyer = 1+(8-PotatoCount.Length)/10;
             GlobalSpeed*= multiplyer;
@@ -57,7 +58,8 @@ public class SpeedChanger : MonoBehaviour
             
         } else if (other.gameObject.tag == "Rock") {
             aiPath.maxSpeed = 0;
-            timer = stallTimer; 
+            timer = stallTimer;
+            Debug.Log(timer);    
             stall();
         }   
     }
