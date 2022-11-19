@@ -22,7 +22,6 @@ public class Sling : MonoBehaviour
 		mouse_pos.Normalize();
 		float angle = Mathf.Atan2(mouse_pos.y, mouse_pos.x) * Mathf.Rad2Deg;
 		transform.rotation = Quaternion.Euler(0f, 0f,angle);
-        Debug.Log(player.rockCount);
         if(Input.GetMouseButton(0) && player.rockCount > 0 ){
             rockShoot();
      	}
