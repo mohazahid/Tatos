@@ -8,6 +8,9 @@ TagManager:
   - Collectible
   - Rock
   - MainMenu
+  - Enemy
+  - Lanturn
+  - SpawningRock
   layers:
   - Default
   - TransparentFX
@@ -15,7 +18,7 @@ TagManager:
   - A*
   - Water
   - UI
-  - 
+  - miniMap
   - 
   - 
   - 

@@ -12,6 +12,7 @@ public class Menu: MonoBehaviour
     public void youWon()
     {
         SceneManager.LoadScene("MainMenu");
+        
     }
     public void StartGame()
     {
@@ -21,6 +22,6 @@ public class Menu: MonoBehaviour
         SceneManager.LoadScene("OptionScreen");
     }
     public void Help() {
-        SceneManager.LoadScene("HelpMenu");
+        SceneManager.LoadScene("MainMenu");
     }
 }

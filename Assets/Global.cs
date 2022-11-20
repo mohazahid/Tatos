@@ -10,7 +10,6 @@ public class Global : MonoBehaviour
     bool FlashorLan = false;
     public TMP_Text statText;
     private double msgTimer = 1f;
-
     public GameObject Flashlight;
     public GameObject Lanturn;
     public GameObject FinalPotato;
@@ -18,7 +17,6 @@ public class Global : MonoBehaviour
     bool ranMsg = false;
     int potatoCheck;
     private int PotatoCounter = 0;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +31,19 @@ public class Global : MonoBehaviour
         PotatoCount = GameObject.FindGameObjectsWithTag("Collectible");
         if (LanturnCheck.Length == 0)
         {
-            if (Input.GetKeyDown("f"))
+            if (Input.GetAxisRaw("Mouse ScrollWheel") > 0)
+            {
+                if (FlashorLan == false)
+                {
+                    FlashorLan = true;
+                }
+                else
+                {
+                    FlashorLan = false;
+                }
+                LightChoice();
+            }
+            else if (Input.GetAxisRaw("Mouse ScrollWheel") < 0)
             {
                 if (FlashorLan == false)
                 {

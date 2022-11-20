@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/HelpMenu.unity
     guid: ee1f9c9e9118cb44e91525509371f6f9
   - enabled: 1
+    path: Assets/Scenes/TutorialScreen.unity
+    guid: 69eac3f5e86715f4590272a4f2236b00
+  - enabled: 1
     path: Assets/Scenes/GameScreen.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1

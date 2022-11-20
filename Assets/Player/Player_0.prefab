@@ -173,8 +173,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   times: 0.2
+  rockCount: 0
   maxHealth: 100
   currentHealth: 0
+  RockValue: {fileID: 0}
   healthBar: {fileID: 0}
   rb: {fileID: 0}
   movement: {x: 0, y: 0}
@@ -511,6 +513,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8924609597929877019}
     m_Modifications:
+    - target: {fileID: -8933408802388670658, guid: 9deed9bf91d7734429f27afedd8a4404, type: 3}
+      propertyPath: Lanturn
+      value: 
+      objectReference: {fileID: 8924609599808792750}
     - target: {fileID: 1950394712, guid: 9deed9bf91d7734429f27afedd8a4404, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -600,5 +606,10 @@ PrefabInstance:
 --- !u!4 &7615815374030461540 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1326972676810414994, guid: 9deed9bf91d7734429f27afedd8a4404, type: 3}
+  m_PrefabInstance: {fileID: 8924609598001005046}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8924609599808792750 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1950394712, guid: 9deed9bf91d7734429f27afedd8a4404, type: 3}
   m_PrefabInstance: {fileID: 8924609598001005046}
   m_PrefabAsset: {fileID: 0}

@@ -8,11 +8,13 @@ public class pauseMenu : MonoBehaviour
     // Start is called before the first frame update
     public static bool GameIsPaused = false;
     public GameObject PauseMenuUI;
+    public GameObject Controls;
+    public bool ControlsOn = false; 
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !ControlsOn)
         {
             if (GameIsPaused)
             {
@@ -22,7 +24,7 @@ public class pauseMenu : MonoBehaviour
             {
                 Pause();
             }
-        }
+        }   
     }
 
     public void Resume()
@@ -45,4 +47,12 @@ public class pauseMenu : MonoBehaviour
     public void quitGame() {
         Application.Quit();
     }
+    public void controls() {
+        Controls.SetActive(true);   
+        ControlsOn = true;
+    }
+    public void controlsOff() {
+        Controls.SetActive(false);
+        ControlsOn = false; 
+    }   
 }

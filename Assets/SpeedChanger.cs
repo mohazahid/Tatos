@@ -19,18 +19,20 @@ public class SpeedChanger : MonoBehaviour
         if (ToggleDifficulty.difficulty == "Easy"){
             aiPath.maxSpeed = 40;
             aiPath.maxAcceleration = 25;    
-            stallTimer = 4;  
-            timer = 4;
+            stallTimer = .4;  
+            timer = .4;
         }
         else if (ToggleDifficulty.difficulty == "Normal"){
             aiPath.maxSpeed = 100;
             aiPath.maxAcceleration = 75; 
-            stallTimer = 2;  
+            stallTimer = .2;  
+            timer = .2;
         }
         else if (ToggleDifficulty.difficulty == "Hard"){
             aiPath.maxSpeed = 200;
             aiPath.maxAcceleration = 200; 
-            stallTimer = 1;  
+            stallTimer = .1;  
+            timer = .1;
         }   
         int multiplyer =1;
         Debug.Log("SpeedChanger: " + aiPath.maxSpeed);
@@ -44,7 +46,7 @@ public class SpeedChanger : MonoBehaviour
         PotatoCount = GameObject.FindGameObjectsWithTag("Collectible");
         if (PotatoCount.Length != count) {
             count--;
-            multiplyer = 1+(8-PotatoCount.Length)/10;
+            multiplyer = 1+(8-PotatoCount.Length)/7;
             GlobalSpeed*= multiplyer;
         }       
         
