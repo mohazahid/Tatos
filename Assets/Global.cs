@@ -51,10 +51,10 @@ public class Global : MonoBehaviour
             }
         }
         
-        statText.SetText((8-remaining.Length) + "/8");
+        statText.SetText((8-PotatoCount.Length) + "/8");
 
         //change ambient sound
-        if (remaining.Length <= 4)
+        if (PotatoCount.Length <= 4)
         {
             GetComponent<AudioSource>().clip = ambient[1];
 
