@@ -217,7 +217,11 @@ GameObject:
   - component: {fileID: 8924609597929877023}
   - component: {fileID: 8924609597929877022}
   - component: {fileID: 8924609597929877016}
+<<<<<<< Updated upstream
   - component: {fileID: 8719225140400009906}
+=======
+  - component: {fileID: 9171090650921988692}
+>>>>>>> Stashed changes
   m_Layer: 0
   m_Name: Player_0
   m_TagString: Player
@@ -286,7 +290,11 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
+<<<<<<< Updated upstream
   m_Sprite: {fileID: -1741736227, guid: 88992592c94c13742be55ef6c85c9a34, type: 3}
+=======
+  m_Sprite: {fileID: 1389062862, guid: 88992592c94c13742be55ef6c85c9a34, type: 3}
+>>>>>>> Stashed changes
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -386,8 +394,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b28faecd763d7604fbb9a160c44d1e23, type: 3}
   - {fileID: 8300000, guid: 10b73a4527eda004dbd4c58aacc11d38, type: 3}
   rb: {fileID: 8924609597929877023}
+<<<<<<< Updated upstream
   movement: {x: 0, y: 0}
 --- !u!82 &8719225140400009906
+=======
+  movement: {x: 0, y: 1}
+--- !u!82 &9171090650921988692
+>>>>>>> Stashed changes
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -397,7 +410,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
+<<<<<<< Updated upstream
   m_audioClip: {fileID: 8300000, guid: b28faecd763d7604fbb9a160c44d1e23, type: 3}
+=======
+  m_audioClip: {fileID: 0}
+>>>>>>> Stashed changes
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -619,7 +636,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8924609598787348400}
+<<<<<<< Updated upstream
   m_LocalRotation: {x: -0, y: -0, z: -0.21057987, w: 0.9775767}
+=======
+  m_LocalRotation: {x: -0, y: -0, z: 0.56063634, w: 0.8280621}
+>>>>>>> Stashed changes
   m_LocalPosition: {x: 0.357, y: -0.88099974, z: 3}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
@@ -718,7 +739,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8924609599378285495}
+<<<<<<< Updated upstream
   m_LocalRotation: {x: -0, y: -0, z: -0.20803267, w: 0.97812194}
+=======
+  m_LocalRotation: {x: -0, y: -0, z: 0.4454455, w: 0.89530903}
+>>>>>>> Stashed changes
   m_LocalPosition: {x: 0.05100098, y: -0.7830002, z: 3}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
