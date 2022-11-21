@@ -18,6 +18,7 @@ public class Global : MonoBehaviour
     bool ranMsg = false;
     int potatoCheck;
     private int PotatoCounter = 0;
+    public static bool finalPotatoActive = false;    
     // Start is called before the first frame update
     void Start()
     {
@@ -87,6 +88,7 @@ public class Global : MonoBehaviour
             FinalMessage();
             ranMsg = true;
         }
+
         statText.SetText(PotatoCounter + "/8");
     }
 

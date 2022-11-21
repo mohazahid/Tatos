@@ -9,6 +9,7 @@ public class RockShoot : MonoBehaviour
     private Rigidbody2D rb;
     public float force;
     private float timer;
+    private AudioSource RockSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,7 @@ public class RockShoot : MonoBehaviour
         float rot = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;    
         transform.rotation = Quaternion.Euler(0f, 0f, rot);     
         timer = 5;
+        RockSound = GetComponent<AudioSource>();
     }
     // Update is called once per frame
     void Update()
@@ -39,12 +41,17 @@ public class RockShoot : MonoBehaviour
     /// <param name="other">The other Collider2D involved in this collision.</param>
     void OnTriggerEnter2D(Collider2D other)
     {
+        
         if (other.gameObject.tag == "Player" || other.gameObject.tag == "Rock")
         {
         }
         else
         {
+            RockSound.enabled = true;
+            RockSound.Play();
             Destroy(gameObject);
+            
+
         }
     }
 }

@@ -34,6 +34,7 @@ public class CollectiblePointerScript : MonoBehaviour
         if (collectibles.Length > 0)
         {
             FindClosest();
+            if (closestCollectible!= null) {
             var dir = closestCollectible.transform.position - Player.transform.position;
             if (dir.magnitude < hideDistance)
             {
@@ -46,6 +47,7 @@ public class CollectiblePointerScript : MonoBehaviour
             var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             Debug.Log("Closest Collectible: " + closestCollectible.name);
+            }
         }
 
     }
@@ -54,6 +56,8 @@ public class CollectiblePointerScript : MonoBehaviour
     {
         if (collectibles.Length > 0)
         {
+            if ( closestCollectible !=null) {
+            
             var dist = Vector3.Distance(Player.transform.position, closestCollectible.transform.position);
             for (int i = 0; i < collectibles.Length; i++)
             {
@@ -63,7 +67,13 @@ public class CollectiblePointerScript : MonoBehaviour
                     closestCollectible = collectibles[i];
                 }
             }
-
+            } else {
+                if (collectibles.Length > 0)    
+                {
+                    closestCollectible = collectibles[0];
+                }
+                
+            }   
         }
     }
     void SetArrowActive(bool value)

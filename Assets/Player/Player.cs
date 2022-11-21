@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
         bool Walking = (Mathf.Abs(input_x) + Mathf.Abs(input_y)) > 0;
         RockValue.text = rockCount.ToString() + "/5";
         PotatoCount = GameObject.FindGameObjectsWithTag("Collectible");
-        if (PotatoCount.Length == 0)
+        if (PotatoCount.Length == 0 && Global.finalPotatoActive)
         {
             SceneManager.LoadScene("WinScreen");
         }
