@@ -230,8 +230,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 195.54997, y: 48.44136}
-  m_SizeDelta: {x: 427.1735, y: 370.5946}
+  m_AnchoredPosition: {x: 195.6, y: 50.3}
+  m_SizeDelta: {x: 472.6628, y: 478.4485}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &127722305
 MonoBehaviour:
@@ -306,8 +306,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000045776367, y: -27.2}
-  m_SizeDelta: {x: 238.2, y: -274.1875}
+  m_AnchoredPosition: {x: 0.79652405, y: -39.92401}
+  m_SizeDelta: {x: 238.2, y: -421.9937}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &226730015
 MonoBehaviour:
@@ -576,8 +576,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 65.3}
-  m_SizeDelta: {x: 238.2, y: -241.0003}
+  m_AnchoredPosition: {x: -0.17349243, y: 81.944}
+  m_SizeDelta: {x: 238.2, y: -302.2218}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &674767861
 MonoBehaviour:
@@ -601,7 +601,13 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Movement - WASD
 
-    Swtich Lights - F
+    Swtich Lights - Scroll Wheel
+
+    Turn off light
+    - F
+
+    Throw Rock - left Click
+
 
 '
   m_isRightToLeft: 0
@@ -955,8 +961,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.6231537, y: 143.1}
-  m_SizeDelta: {x: 238.2, y: -274.1875}
+  m_AnchoredPosition: {x: 0.7965088, y: 203.13}
+  m_SizeDelta: {x: 238.2, y: -406.251}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1307604544
 MonoBehaviour:
@@ -1166,8 +1172,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.31149292, y: -108.29999}
-  m_SizeDelta: {x: 239.17, y: -274.1875}
+  m_AnchoredPosition: {x: -0.00048828125, y: -161.4562}
+  m_SizeDelta: {x: 265.72, y: -283.808}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1588757143
 MonoBehaviour:
@@ -1191,7 +1197,10 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Collect All 8 potato
 
-    Dont Die to Corrupted Potato'
+
+    Dont Die to the Corrupted Potato
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 40e60a9cab499d04cb9ffd5f6808e9ff, type: 2}
   m_sharedMaterial: {fileID: 8036336848951448557, guid: 40e60a9cab499d04cb9ffd5f6808e9ff, type: 2}
