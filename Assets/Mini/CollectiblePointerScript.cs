@@ -8,26 +8,45 @@ public class CollectiblePointerScript : MonoBehaviour
     public GameObject Player;
     private GameObject[] collectibles;
     public GameObject closestCollectible;
-    float hideDistance = 3f;
+    float hideDistance = 37;
     public GameObject Arrow;
 
     void Start()
     {
-        collectibles= GameObject.FindGameObjectsWithTag("Collectible");
-        closestCollectible = collectibles[0];   
-        FindClosest();
+        collectibles = GameObject.FindGameObjectsWithTag("Collectible");
+        if (collectibles.Length > 0)
+        {
+            closestCollectible = collectibles[0];
+            SetArrowActive(true);
+            FindClosest();
+        }
+        else
+        {
+            SetArrowActive(false);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        SetArrowActive(false);
         collectibles = GameObject.FindGameObjectsWithTag("Collectible");
-        if (collectibles.Length > 0) {
+        if (collectibles.Length > 0)
+        {
             FindClosest();
             var dir = closestCollectible.transform.position - Player.transform.position;
+            if (dir.magnitude < hideDistance)
+            {
+                SetArrowActive(false);
+            }
+            else
+            {
+                SetArrowActive(true);
+                Debug.Log("dir" + dir.magnitude); 
+            }
             var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            Debug.Log("Closest Collectible: " + closestCollectible.name);   
+            Debug.Log("Closest Collectible: " + closestCollectible.name);
         }
 
     }
@@ -48,7 +67,8 @@ public class CollectiblePointerScript : MonoBehaviour
 
         }
     }
-    void SetArrowActive(bool value) {
-        Arrow.SetActive(value);  
+    void SetArrowActive(bool value)
+    {
+        Arrow.SetActive(value);
     }
 }
