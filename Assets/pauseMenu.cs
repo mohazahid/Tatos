@@ -55,4 +55,5 @@ public class pauseMenu : MonoBehaviour
         Controls.SetActive(false);
         ControlsOn = false; 
     }   
+    
 }
