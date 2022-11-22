@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class playerTutorial : MonoBehaviour
 {
     int randInt;
+    public static bool potatoGone = false;      
     public double times = .2;
     private double HealthTimer = 0;
     Animator anim;
@@ -65,7 +66,11 @@ public class playerTutorial : MonoBehaviour
                 playerSound.Play();
             }
         }
-
+        if (potatoGone) {
+            potatoGone = false;
+            SceneManager.LoadScene("MainMenu");    
+            
+        }
     }
 
     // 'FixedUpdate' Method is used for Physics movements
