@@ -10,7 +10,7 @@ public class Global : MonoBehaviour
     bool FlashorLan = false;
     public TMP_Text statText;
     private double msgTimer = 1f;
-    public AudioClip[] ambient;
+    //public AudioClip[] ambient;
     public GameObject Flashlight;
     public GameObject Lanturn;
     public GameObject FinalPotato;
@@ -22,8 +22,8 @@ public class Global : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<AudioSource>().clip = ambient[0];
-        GetComponent<AudioSource>().Play();
+        //GetComponent<AudioSource>().clip = ambient[0];
+        //GetComponent<AudioSource>().Play();
         PotatoCount = GameObject.FindGameObjectsWithTag("Collectible");
         potatoCheck = PotatoCount.Length;
     }
@@ -60,15 +60,15 @@ public class Global : MonoBehaviour
                 LightChoice();
             }
         }
-         if (PotatoCount.Length <= 4)
-        {
-            GetComponent<AudioSource>().clip = ambient[1];
+        //  if (PotatoCount.Length <= 4)
+        // {
+        //     GetComponent<AudioSource>().clip = ambient[1];
 
-            if (!GetComponent<AudioSource>().isPlaying)
-            {
-                GetComponent<AudioSource>().Play();
-            }
-        }
+        //     if (!GetComponent<AudioSource>().isPlaying)
+        //     {
+        //         GetComponent<AudioSource>().Play();
+        //     }
+        // }
         if (PotatoCount.Length == 0)
         {
             PotatoCounter++;
