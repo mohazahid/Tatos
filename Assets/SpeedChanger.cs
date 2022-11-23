@@ -7,10 +7,12 @@ public class SpeedChanger : MonoBehaviour
     // Start is called before the first frame update
     private AIPath aiPath;
     private float GlobalSpeed;
+    private float speedHolder;
     GameObject[] PotatoCount;
     double timer;
     double stallTimer;
     int multiplyer;
+    bool stallOn = false;
     int count = 8;
     void Start()
     {
@@ -36,41 +38,42 @@ public class SpeedChanger : MonoBehaviour
         }   
         int multiplyer =1;
         Debug.Log("SpeedChanger: " + aiPath.maxSpeed);
-        
+        speedHolder = aiPath.maxSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        aiPath.maxSpeed = GlobalSpeed;
+        GlobalSpeed = aiPath.maxSpeed;
         PotatoCount = GameObject.FindGameObjectsWithTag("Collectible");
         if (PotatoCount.Length != count) {
             count--;
             multiplyer = 1+(8-PotatoCount.Length)/7;
-            GlobalSpeed*= multiplyer;
+            GlobalSpeed = speedHolder*multiplyer;
         }       
         
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        //Debug.Log(aiPath.maxSpeed); 
-        //aiPath.maxSpeed = 1;
         if (other.gameObject.tag == "Player") {
             
         } else if (other.gameObject.tag == "Rock") {
-            aiPath.maxSpeed = 0;
-            timer = stallTimer;
-            Debug.Log(timer);    
-            stall();
+            aiPath.maxSpeed = 1;
+            timer = stallTimer;   
+            stallOn = true;
         }   
     }
 
 
-    void stall() {
-        timer -= 1* Time.deltaTime;
-        if (timer <= 0) {
-            aiPath.maxSpeed = GlobalSpeed;  
+    private void FixedUpdate() {       
+        if(stallOn) {
+            timer -= .5* Time.deltaTime;
+            if (timer <= 0) {
+                aiPath.maxSpeed = speedHolder*multiplyer;  
+                stallOn = false;
+            }
+            Debug.Log(timer);
         }
     }
 }
