@@ -9,7 +9,7 @@ public class potatoAudioScript : MonoBehaviour
     private AudioSource PotatoSound;
     void Start()
     {
-        AudioSound = GetComponent<AudioSource>();
+        PotatoSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -18,7 +18,7 @@ public class potatoAudioScript : MonoBehaviour
         if (Player.potatoCount != SelfCounter)
         {
             SelfCounter = Player.potatoCount;
-            playerSound.Play();
+            PotatoSound.Play();
         }
     }
 }

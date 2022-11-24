@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     int randInt;
     public double times = .2;
     private double HealthTimer = 0;
-    public static int potatoCount= 0;
+    public static int potatoCount = 0;
     Animator anim;
     private AudioSource playerSound;
     public int rockCount;
@@ -67,7 +67,8 @@ public class Player : MonoBehaviour
                 playerSound.clip = footsteps[randInt];
                 playerSound.Play();
             }
-        } else
+        }
+        else
         {
             playerSound.enabled = false;
         }
