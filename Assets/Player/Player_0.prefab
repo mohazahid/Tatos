@@ -485,7 +485,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8924609597929877217}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6edd71ea21bfc24cbebde4a1fe39c0b, type: 3}
+  m_Script: {fileID: 11500000, guid: 3804a45c0709a264f90aef6d6cd9dc14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   times: 0.2
@@ -494,9 +494,7 @@ MonoBehaviour:
   currentHealth: 0
   RockValue: {fileID: 0}
   healthBar: {fileID: 0}
-  footsteps:
-  - {fileID: 8300000, guid: b28faecd763d7604fbb9a160c44d1e23, type: 3}
-  - {fileID: 8300000, guid: 10b73a4527eda004dbd4c58aacc11d38, type: 3}
+  footsteps: []
   rb: {fileID: 0}
   movement: {x: 0, y: 0}
 --- !u!82 &354643965108576837
