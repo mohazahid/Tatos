@@ -11,20 +11,11 @@ public class setVolume : MonoBehaviour
     public AudioMixer mixer;
     void Awake()   
    {
-        mySlider.value = PlayerPrefs.GetFloat("key", 0.5f); 
+        mySlider.value = PlayerPrefs.GetFloat("MusicVolume", 0.75f);
     }
     public void setLevel(float SliderVal) 
     {
         mixer.SetFloat("MusicVol", Mathf.Log10(SliderVal) * 20);
-        PlayerPrefs.SetFloat("key", Mathf.Log10(SliderVal) * 20);
-        mySlider.value = SliderVal;  
-    }
-
-    public void LoadValues() 
-    {
-        float value = PlayerPrefs.GetFloat("key", 0.75f);
-        mixer.SetFloat("MusicVol", value);
-        mySlider.value = value;
-    }
-     
+        PlayerPrefs.SetFloat("MusicVolume", SliderVal);
+    }    
 }
