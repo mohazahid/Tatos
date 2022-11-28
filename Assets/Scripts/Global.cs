@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class Global : MonoBehaviour
@@ -11,6 +12,9 @@ public class Global : MonoBehaviour
     private double msgTimer = 5f;
     public GameObject Flashlight;
     public GameObject Lanturn;
+    public GameObject LanturnGUI;
+    public GameObject FlashlightImage;
+    public GameObject LanturnImage;
     public GameObject FinalPotato;
     public GameObject Finalmsg;
     bool ranMsg = false;
@@ -27,6 +31,7 @@ public class Global : MonoBehaviour
         LanturnCheck = GameObject.FindGameObjectsWithTag("Lanturn");
         if (LanturnCheck.Length == 0)
         {
+            LanturnGUI.SetActive(true);
             if (Input.GetAxisRaw("Mouse ScrollWheel") > 0)
             {
                 if (FlashorLan == false)
@@ -68,11 +73,15 @@ public class Global : MonoBehaviour
         {
             Flashlight.SetActive(false);
             Lanturn.SetActive(true);
+            FlashlightImage.SetActive(false);
+            LanturnImage.SetActive(true);
         }
         else
         {
             Flashlight.SetActive(true);
             Lanturn.SetActive(false);
+            FlashlightImage.SetActive(true);
+            LanturnImage.SetActive(false);
         }
     }
     void FinalMessage()
