@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
     public TMP_Text RockValue;
     public HealthBar healthBar;
     public AudioClip[] footsteps;
+    public GameObject Hurt;
+    private AudioSource HurtAudio;
     // Add the variables
     private float speed = 50f; // Speed variable
     public Rigidbody2D rb; // Set the variable 'rb' as Rigibody
@@ -36,6 +38,7 @@ public class Player : MonoBehaviour
         playerSound = GetComponent<AudioSource>();
         rockCount = 3;
         RockValue.text = rockCount.ToString() + "/5";
+        HurtAudio = Hurt.GetComponent<AudioSource>();
     }
 
 
@@ -117,6 +120,7 @@ public class Player : MonoBehaviour
         if (HealthTimer <= 0)
         {
             currentHealth -= 10;
+            HurtAudio.Play();
             healthBar.SetHealth(currentHealth);
             HealthTimer = .4;
         }
