@@ -9,9 +9,15 @@ public class globalTutorial : MonoBehaviour
     GameObject[] LanturnCheck;
     bool FlashorLan = false;
     public TMP_Text statText;
+    private double msgTimer = 5f;
     public AudioClip[] ambient;
     public GameObject Flashlight;
     public GameObject Lanturn;
+    public GameObject LanturnGUI;
+    public GameObject FlashlightImage;
+    public GameObject LanturnImage;
+    public GameObject LanturnTutorial;
+    public bool Grabbed = true;
   
     int potatoCheck;
     private int PotatoCounter = 0;
@@ -31,6 +37,18 @@ public class globalTutorial : MonoBehaviour
         PotatoCount = GameObject.FindGameObjectsWithTag("Collectible");
         if (LanturnCheck.Length == 0)
         {
+            Debug.Log(msgTimer);
+            LanturnGUI.SetActive(true);
+            if (Grabbed) {
+                Time.timeScale = 0f;
+                LanturnTutorial.SetActive(true);
+                if (Input.GetKeyDown("e"))
+                {
+                    LanturnTutorial.SetActive(false);
+                    Time.timeScale = 1f;
+                    Grabbed = false;
+                }  
+            }
             if (Input.GetAxisRaw("Mouse ScrollWheel") > 0)
             {
                 if (FlashorLan == false)
@@ -71,11 +89,15 @@ public class globalTutorial : MonoBehaviour
         {
             Flashlight.SetActive(false);
             Lanturn.SetActive(true);
+            FlashlightImage.SetActive(false);
+            LanturnImage.SetActive(true);
         }
         else
         {
             Flashlight.SetActive(true);
             Lanturn.SetActive(false);
+            FlashlightImage.SetActive(true);
+            LanturnImage.SetActive(false);
         }
     }
 }
