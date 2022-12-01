@@ -18,7 +18,7 @@ public class globalTutorial : MonoBehaviour
     public GameObject LanturnImage;
     public GameObject LanturnTutorial;
     public bool Grabbed = true;
-  
+
     int potatoCheck;
     private int PotatoCounter = 0;
     // Start is called before the first frame update
@@ -39,7 +39,8 @@ public class globalTutorial : MonoBehaviour
         {
             Debug.Log(msgTimer);
             LanturnGUI.SetActive(true);
-            if (Grabbed) {
+            if (Grabbed)
+            {
                 Time.timeScale = 0f;
                 LanturnTutorial.SetActive(true);
                 if (Input.GetKeyDown("e"))
@@ -47,7 +48,7 @@ public class globalTutorial : MonoBehaviour
                     LanturnTutorial.SetActive(false);
                     Time.timeScale = 1f;
                     Grabbed = false;
-                }  
+                }
             }
             if (Input.GetAxisRaw("Mouse ScrollWheel") > 0)
             {
@@ -75,11 +76,11 @@ public class globalTutorial : MonoBehaviour
             }
         }
 
-            if (PotatoCount.Length != potatoCheck)
-            {
-                PotatoCounter++;
-                potatoCheck = PotatoCount.Length;
-            }
+        if (PotatoCount.Length != potatoCheck)
+        {
+            PotatoCounter++;
+            potatoCheck = PotatoCount.Length;
+        }
         statText.SetText(PotatoCounter + "/1");
     }
 

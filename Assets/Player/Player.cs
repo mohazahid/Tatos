@@ -22,8 +22,9 @@ public class Player : MonoBehaviour
     public AudioClip[] footsteps;
     public GameObject Hurt;
     private AudioSource HurtAudio;
+    public StaminaBar staminaBar;
     // Add the variables
-    private float speed = 50f; // Speed variable
+    private float speed = 35f; // Speed variable
     public Rigidbody2D rb; // Set the variable 'rb' as Rigibody
     public Vector2 movement; // Set the variable 'movement' as a Vector3 (x,y,z)
 
@@ -75,7 +76,18 @@ public class Player : MonoBehaviour
         {
             playerSound.enabled = false;
         }
-
+        if(Input.GetKey(KeyCode.LeftShift))
+            {
+                if (staminaBar.Stamina > 30) {
+                    speed = 60f;
+                staminaBar.UseStamina(.2f);
+                } else {
+                speed = 35f;
+                staminaBar.UseStamina(.2f);
+            }
+        } else {
+            speed = 35f;
+        }
     }
 
     // 'FixedUpdate' Method is used for Physics movements

@@ -18,6 +18,7 @@ public class Global : MonoBehaviour
     public GameObject FinalPotato;
     public GameObject Finalmsg;
     bool ranMsg = false;
+    bool cooldownOff = true;
 
     public static bool finalPotatoActive = false;    
     // Start is called before the first frame update
@@ -32,6 +33,7 @@ public class Global : MonoBehaviour
         if (LanturnCheck.Length == 0)
         {
             LanturnGUI.SetActive(true);
+            if(cooldownOff) {
             if (Input.GetAxisRaw("Mouse ScrollWheel") > 0)
             {
                 if (FlashorLan == false)
@@ -54,6 +56,10 @@ public class Global : MonoBehaviour
                 {
                     FlashorLan = false;
                 }
+                LightChoice();
+            }
+            } else {
+                FlashorLan = true;
                 LightChoice();
             }
         }
