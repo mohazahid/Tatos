@@ -15,7 +15,11 @@ public class Sling : MonoBehaviour
 
     }
     void Update() {
-        if(Input.GetMouseButtonDown(0) && player.rockCount > 0 ){
+        if (player == null) {
+            if(Input.GetMouseButtonDown(0) && playerTutorial.rockCount > 0 ) {
+                rockShootTutorial();
+            }
+        } else if(Input.GetMouseButtonDown(0) && player.rockCount > 0 ){
             rockShoot();
         }
     }

@@ -76,15 +76,11 @@ public class playerTutorial : MonoBehaviour
         }
        if(Input.GetKey(KeyCode.LeftShift))
             {
-                if (staminaBar.Stamina > 1 && Walking)
+                if (staminaBar.Stamina > 0 && Walking)
                 {
-                    staminaBar.UseStamina(.15f);
+                    staminaBar.UseStaminaTutorial(.15f);
                 }
-                else
-                {
-                    SprintCoolDown = true;
-                    speed = 35f;
-                }
+                
         } else {
             speed = 35f;
         }
@@ -118,6 +114,10 @@ public class playerTutorial : MonoBehaviour
     {
         if (other.gameObject.tag == "SpawningRock")
         {
+            if (other.gameObject.tag == "Enemy")
+            {
+                TakeDamage();
+            }
             if (rockCount < rockCountMax)
             {
                 rockCount++;

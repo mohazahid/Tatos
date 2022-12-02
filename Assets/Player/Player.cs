@@ -82,13 +82,12 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            if (staminaBar.Stamina > 1 && Walking)
+            if (staminaBar.Stamina > 0 && Walking) 
             {
-                staminaBar.UseStaminaTutorial(.15f);
+                staminaBar.UseStamina(.15f);
             }
             else
             {
-                SprintCoolDown = true;
                 speed = 35f;
             }
         }

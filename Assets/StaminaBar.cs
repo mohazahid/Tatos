@@ -26,16 +26,17 @@ public class StaminaBar : MonoBehaviour
             Stamina -= amount;
             StamSlider.value = Stamina;
             Player.speed = 60f;
-            playerTutorial.speed = 60f;
             if (regen != null)
             {
                 StopCoroutine(regen);
             }
             regen = StartCoroutine(RegenStamina());
         }
-        else
+        else if (Stamina - amount <= 0)
         {
-            Debug.Log("Not enough stamina");
+            Stamina = 0;
+            StamSlider.value = Stamina;
+            Player.SprintCoolDown = true;
         }
     }
     public void UseStaminaTutorial(float amount)
@@ -51,9 +52,11 @@ public class StaminaBar : MonoBehaviour
             }
             regen = StartCoroutine(RegenStamina());
         }
-        else
+        else if (Stamina - amount <= 0)
         {
-            Debug.Log("Not enough stamina");
+            Stamina = 0;
+            StamSlider.value = Stamina;
+            playerTutorial.SprintCoolDown = true;
         }
     }
     private IEnumerator RegenStamina()
