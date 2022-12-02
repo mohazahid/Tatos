@@ -1,0 +1,19 @@
+Credits:
+TileMaps For background and furniture: Link: https://cainos.itch.io/pixel-art-top-down-basic
+
+TileMaps For houses and path:Link: https://opengameart.org/content/lpc-tile-atlas
+
+URP Shadow built into unity: https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@12.0/manual/Shadows-in-URP.html
+
+A* pathing system: https://arongranberg.com/astar/
+
+Health Bar: https://www.seekpng.com/ipng/u2q8y3i1t4q8t4w7_health-bar-health-bar-sprite-2d/
+Rock: https://www.freepik.com/free-vector/set-gray-stones-isolated-white_16856094.htm#query=rock&position=3&from_view=keyword Image by brgfx on Freepik
+
+Music:Sound Effect from Pixbay licenses for each audio are in the unity project
+
+Lead Developer: Mohammad Zahid
+
+ArtWork/Animation Created by: Mohammad Zahid
+
+

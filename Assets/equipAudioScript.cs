@@ -25,7 +25,7 @@ public class equipAudioScript : MonoBehaviour
                 Item.Play();
                 hasPlayed = true;
             }
-            if (Input.GetAxisRaw("Mouse ScrollWheel") > 0)
+            if (Input.GetAxisRaw("Mouse ScrollWheel") > 0 && !Global.isCoolDown)
             {
                 if (FlashorLan == false)
                 {
@@ -39,7 +39,7 @@ public class equipAudioScript : MonoBehaviour
                 }
                 
             }
-            else if (Input.GetAxisRaw("Mouse ScrollWheel") < 0)
+            else if (Input.GetAxisRaw("Mouse ScrollWheel") < 0 && !Global.isCoolDown)
             {
                 if (FlashorLan == false)
                 {

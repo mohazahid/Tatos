@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class globalTutorial : MonoBehaviour
@@ -18,6 +19,8 @@ public class globalTutorial : MonoBehaviour
     public GameObject LanturnImage;
     public GameObject LanturnTutorial;
     public bool Grabbed = true;
+    public static bool isCoolDown = false;
+    public LanturnCoolDown LanturnCoolDown;
 
     int potatoCheck;
     private int PotatoCounter = 0;
@@ -35,9 +38,8 @@ public class globalTutorial : MonoBehaviour
     {
         LanturnCheck = GameObject.FindGameObjectsWithTag("Lanturn");
         PotatoCount = GameObject.FindGameObjectsWithTag("Collectible");
-        if (LanturnCheck.Length == 0)
+        if (LanturnCheck.Length == 0 )
         {
-            Debug.Log(msgTimer);
             LanturnGUI.SetActive(true);
             if (Grabbed)
             {
@@ -50,7 +52,7 @@ public class globalTutorial : MonoBehaviour
                     Grabbed = false;
                 }
             }
-            if (Input.GetAxisRaw("Mouse ScrollWheel") > 0)
+            if (Input.GetAxisRaw("Mouse ScrollWheel") > 0 && !isCoolDown)
             {
                 if (FlashorLan == false)
                 {
@@ -62,7 +64,7 @@ public class globalTutorial : MonoBehaviour
                 }
                 LightChoice();
             }
-            else if (Input.GetAxisRaw("Mouse ScrollWheel") < 0)
+            else if (Input.GetAxisRaw("Mouse ScrollWheel") < 0 && !isCoolDown)
             {
                 if (FlashorLan == false)
                 {
@@ -73,9 +75,18 @@ public class globalTutorial : MonoBehaviour
                     FlashorLan = false;
                 }
                 LightChoice();
+            }
+            if (isCoolDown) {
+                FlashorLan =false; 
+                LightChoice();
+            }
+            if (FlashorLan) {
+                LanturnCoolDown.activateCoolDownEffect();
+            } else {
+                LanturnCoolDown.resetCoolDownEffect();
             }
         }
-
+        
         if (PotatoCount.Length != potatoCheck)
         {
             PotatoCounter++;
@@ -91,14 +102,14 @@ public class globalTutorial : MonoBehaviour
             Flashlight.SetActive(false);
             Lanturn.SetActive(true);
             FlashlightImage.SetActive(false);
-            LanturnImage.SetActive(true);
+            
         }
         else
         {
             Flashlight.SetActive(true);
             Lanturn.SetActive(false);
             FlashlightImage.SetActive(true);
-            LanturnImage.SetActive(false);
+           
         }
     }
 }

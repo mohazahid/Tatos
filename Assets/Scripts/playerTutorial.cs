@@ -21,6 +21,7 @@ public class playerTutorial : MonoBehaviour
     public GameObject Potato;
     public HealthBar healthBar;
     public AudioClip[] footsteps;
+    public StaminaBar staminaBar;
     // Add the variables
     private float speed = 50f; // Speed variable
     public Rigidbody2D rb; // Set the variable 'rb' as Rigibody
@@ -64,6 +65,22 @@ public class playerTutorial : MonoBehaviour
                 playerSound.clip = footsteps[randInt];
                 playerSound.Play();
             }
+            
+        }  else
+        {
+            playerSound.enabled = false;
+        }
+        if(Input.GetKey(KeyCode.LeftShift))
+            {
+                if (staminaBar.Stamina > 30) {
+                    speed = 60f;
+                staminaBar.UseStamina(.2f);
+                } else {
+                speed = 35f;
+                staminaBar.UseStamina(.2f);
+            }
+        } else {
+            speed = 35f;
         }
 
         FirstPotato();

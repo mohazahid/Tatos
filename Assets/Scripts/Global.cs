@@ -18,12 +18,13 @@ public class Global : MonoBehaviour
     public GameObject FinalPotato;
     public GameObject Finalmsg;
     bool ranMsg = false;
-    bool cooldownOff = true;
-
+    public static bool isCoolDown = false;
+    public LanturnCoolDown LanturnCoolDown;
     public static bool finalPotatoActive = false;    
     // Start is called before the first frame update
     void Start()
     {
+
     }
 
     // Update is called once per frame
@@ -33,8 +34,7 @@ public class Global : MonoBehaviour
         if (LanturnCheck.Length == 0)
         {
             LanturnGUI.SetActive(true);
-            if(cooldownOff) {
-            if (Input.GetAxisRaw("Mouse ScrollWheel") > 0)
+            if (Input.GetAxisRaw("Mouse ScrollWheel") > 0 && !isCoolDown)
             {
                 if (FlashorLan == false)
                 {
@@ -46,7 +46,7 @@ public class Global : MonoBehaviour
                 }
                 LightChoice();
             }
-            else if (Input.GetAxisRaw("Mouse ScrollWheel") < 0)
+            else if (Input.GetAxisRaw("Mouse ScrollWheel") < 0 && !isCoolDown)
             {
                 if (FlashorLan == false)
                 {
@@ -58,9 +58,14 @@ public class Global : MonoBehaviour
                 }
                 LightChoice();
             }
+            if (isCoolDown) {
+                FlashorLan =false; 
+                LightChoice();
+            }
+            if (FlashorLan) {
+                LanturnCoolDown.activateCoolDownEffect();
             } else {
-                FlashorLan = true;
-                LightChoice();
+                LanturnCoolDown.resetCoolDownEffect();
             }
         }
         if (Player.potatoCount == 7)
@@ -80,14 +85,12 @@ public class Global : MonoBehaviour
             Flashlight.SetActive(false);
             Lanturn.SetActive(true);
             FlashlightImage.SetActive(false);
-            LanturnImage.SetActive(true);
         }
         else
         {
             Flashlight.SetActive(true);
             Lanturn.SetActive(false);
             FlashlightImage.SetActive(true);
-            LanturnImage.SetActive(false);
         }
     }
     void FinalMessage()

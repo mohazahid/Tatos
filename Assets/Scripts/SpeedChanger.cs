@@ -5,7 +5,7 @@ using Pathfinding;
 public class SpeedChanger : MonoBehaviour
 {
     // Start is called before the first frame update
-    private AIPath aiPath;
+    public AIPath aiPath;
     private float GlobalSpeed;
     private float speedHolder;
     GameObject[] PotatoCount;
