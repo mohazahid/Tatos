@@ -1331,7 +1331,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.628
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1391,7 +1391,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: d4edf2c8c9ecb6141bc91d51173f6593, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 4ee71f20d5c2520438a24f7cea78e5a9, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6c8834f6390ab244188dbf8466deb613, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

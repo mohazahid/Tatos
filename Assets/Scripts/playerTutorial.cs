@@ -21,9 +21,10 @@ public class playerTutorial : MonoBehaviour
     public GameObject Potato;
     public HealthBar healthBar;
     public AudioClip[] footsteps;
+    public static bool SprintCoolDown = false;
     public StaminaBar staminaBar;
     // Add the variables
-    private float speed = 50f; // Speed variable
+    public static float speed = 35f; // Speed variable
     public Rigidbody2D rb; // Set the variable 'rb' as Rigibody
     public Vector2 movement; // Set the variable 'movement' as a Vector3 (x,y,z)
 
@@ -38,6 +39,9 @@ public class playerTutorial : MonoBehaviour
         playerSound = GetComponent<AudioSource>();
         rockCount = 3;
         RockValue.text = rockCount.ToString() + "/5";
+        potatoCount = 0;
+        SprintCoolDown = false;
+        speed = 35f;
     }
 
 
@@ -70,15 +74,17 @@ public class playerTutorial : MonoBehaviour
         {
             playerSound.enabled = false;
         }
-        if(Input.GetKey(KeyCode.LeftShift))
+       if(Input.GetKey(KeyCode.LeftShift))
             {
-                if (staminaBar.Stamina > 30) {
-                    speed = 60f;
-                staminaBar.UseStamina(.2f);
-                } else {
-                speed = 35f;
-                staminaBar.UseStamina(.2f);
-            }
+                if (staminaBar.Stamina > 1 && Walking)
+                {
+                    staminaBar.UseStamina(.15f);
+                }
+                else
+                {
+                    SprintCoolDown = true;
+                    speed = 35f;
+                }
         } else {
             speed = 35f;
         }

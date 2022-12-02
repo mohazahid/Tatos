@@ -24,7 +24,8 @@ public class Global : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        isCoolDown = false;
+        finalPotatoActive = false;
     }
 
     // Update is called once per frame

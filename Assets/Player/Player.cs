@@ -23,8 +23,9 @@ public class Player : MonoBehaviour
     public GameObject Hurt;
     private AudioSource HurtAudio;
     public StaminaBar staminaBar;
+    public static bool SprintCoolDown = false;
     // Add the variables
-    private float speed = 35f; // Speed variable
+    public static float speed = 35f; // Speed variable
     public Rigidbody2D rb; // Set the variable 'rb' as Rigibody
     public Vector2 movement; // Set the variable 'movement' as a Vector3 (x,y,z)
 
@@ -40,6 +41,9 @@ public class Player : MonoBehaviour
         rockCount = 3;
         RockValue.text = rockCount.ToString() + "/5";
         HurtAudio = Hurt.GetComponent<AudioSource>();
+        potatoCount = 0;
+        SprintCoolDown = false;
+        speed = 35f;
     }
 
 
@@ -76,16 +80,20 @@ public class Player : MonoBehaviour
         {
             playerSound.enabled = false;
         }
-        if(Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            if (staminaBar.Stamina > 1 && Walking)
             {
-                if (staminaBar.Stamina > 30) {
-                    speed = 60f;
-                staminaBar.UseStamina(.2f);
-                } else {
-                speed = 35f;
-                staminaBar.UseStamina(.2f);
+                staminaBar.UseStaminaTutorial(.15f);
             }
-        } else {
+            else
+            {
+                SprintCoolDown = true;
+                speed = 35f;
+            }
+        }
+        else
+        {
             speed = 35f;
         }
     }
@@ -104,7 +112,9 @@ public class Player : MonoBehaviour
         }
         if (currentHealth <= 0)
         {
+
             SceneManager.LoadScene("EndScreen");
+
         }
     }
     /// <summary>

@@ -31,6 +31,7 @@ public class globalTutorial : MonoBehaviour
         GetComponent<AudioSource>().Play();
         PotatoCount = GameObject.FindGameObjectsWithTag("Collectible");
         potatoCheck = PotatoCount.Length;
+        isCoolDown = false;
     }
 
     // Update is called once per frame

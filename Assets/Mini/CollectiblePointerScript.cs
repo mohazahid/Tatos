@@ -8,7 +8,7 @@ public class CollectiblePointerScript : MonoBehaviour
     public GameObject Player;
     private GameObject[] collectibles;
     public GameObject closestCollectible;
-    float hideDistance = 200;
+    float hideDistance = 150;
     public GameObject Arrow;
 
     void Start()
