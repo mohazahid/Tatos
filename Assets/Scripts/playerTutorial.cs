@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class playerTutorial : MonoBehaviour
 {
-    int randInt;     
+    int randInt;
     public double times = .2;
     private double HealthTimer = 0;
     Animator anim;
@@ -69,19 +69,22 @@ public class playerTutorial : MonoBehaviour
                 playerSound.clip = footsteps[randInt];
                 playerSound.Play();
             }
-            
-        }  else
+
+        }
+        else
         {
             playerSound.enabled = false;
         }
-       if(Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            if (staminaBar.Stamina > 0 && Walking)
             {
-                if (staminaBar.Stamina > 0 && Walking)
-                {
-                    staminaBar.UseStaminaTutorial(.15f);
-                }
-                
-        } else {
+                staminaBar.UseStaminaTutorial(.15f);
+            }
+
+        }
+        else
+        {
             speed = 35f;
         }
 
@@ -143,7 +146,7 @@ public class playerTutorial : MonoBehaviour
     }
     void FirstPotato()
     {
-        
+
         if (potatoCount == 1)
         {
             Time.timeScale = 0f;
