@@ -26,6 +26,8 @@ public class Player : MonoBehaviour
     public static bool SprintCoolDown = false;
     // Add the variables
     public static float speed = 35f; // Speed variable
+    public static float baseSpeed = 35f;
+    public static float SprintSpeed = 60f;
     public Rigidbody2D rb; // Set the variable 'rb' as Rigibody
     public Vector2 movement; // Set the variable 'movement' as a Vector3 (x,y,z)
 
@@ -44,6 +46,8 @@ public class Player : MonoBehaviour
         potatoCount = 0;
         SprintCoolDown = false;
         speed = 35f;
+        baseSpeed = 35f;
+        SprintSpeed = 60f;
     }
 
 
@@ -88,12 +92,12 @@ public class Player : MonoBehaviour
             }
             else
             {
-                speed = 35f;
+                speed = baseSpeed;
             }
         }
         else
         {
-            speed = 35f;
+            speed = baseSpeed;
         }
     }
 

@@ -25,7 +25,7 @@ public class StaminaBar : MonoBehaviour
         {
             Stamina -= amount;
             StamSlider.value = Stamina;
-            Player.speed = 60f;
+            Player.speed = Player.SprintSpeed;
             if (regen != null)
             {
                 StopCoroutine(regen);

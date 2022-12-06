@@ -9,12 +9,13 @@ public class LanturnCoolDown : MonoBehaviour
     // Start is called before the first frame update
     public Image LanturnImage;
     public float coolDownValue = 0f;
-    public float maxCoolDownValue = 5f;
+    public static float maxCoolDownValue = 5f;
     public float coolDownTime = 5f;
     void Start()
     {
         LanturnImage.fillAmount = 0f;
         LanturnImage.fillAmount = coolDownValue;
+        maxCoolDownValue = 5f;
     }
 
     // Update is called once per frame

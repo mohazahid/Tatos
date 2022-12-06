@@ -27,14 +27,14 @@ public class SpeedChanger : MonoBehaviour
         else if (ToggleDifficulty.difficulty == "Normal"){
             aiPath.maxSpeed = 100;
             aiPath.maxAcceleration = 75; 
-            stallTimer = .2;  
-            timer = .2;
+            stallTimer = .3;  
+            timer = .3;
         }
         else if (ToggleDifficulty.difficulty == "Hard"){
-            aiPath.maxSpeed = 200;
-            aiPath.maxAcceleration = 200; 
-            stallTimer = .1;  
-            timer = .1;
+            aiPath.maxSpeed = 120;
+            aiPath.maxAcceleration = 100;
+            stallTimer = .2;  
+            timer = .2;
         }   
         int multiplyer =1;
         Debug.Log("SpeedChanger: " + aiPath.maxSpeed);

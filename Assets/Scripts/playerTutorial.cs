@@ -25,6 +25,7 @@ public class playerTutorial : MonoBehaviour
     public StaminaBar staminaBar;
     // Add the variables
     public static float speed = 35f; // Speed variable
+    public float baseSeed = 35f;
     public Rigidbody2D rb; // Set the variable 'rb' as Rigibody
     public Vector2 movement; // Set the variable 'movement' as a Vector3 (x,y,z)
 
@@ -85,7 +86,7 @@ public class playerTutorial : MonoBehaviour
         }
         else
         {
-            speed = 35f;
+            speed = baseSeed;
         }
 
         FirstPotato();
