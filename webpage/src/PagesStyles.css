@@ -1,0 +1,20 @@
+* {
+    box-sizing: border-box;
+    
+}
+
+body {
+    margin: 0;
+    background-image:url("");
+    background: radial-gradient(circle at 50% 50%, #185c27, #166317, #266b14, #3a7211, #52790e, #6f800a, #887f06, #8f6701);
+
+}
+
+.HomePage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    
+}

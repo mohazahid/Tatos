@@ -1,9 +1,10 @@
 import React from "react";
 import * as data from './constants'
 
-export function Logs() {
-  return(
-    <div>
+export default function Logs() {
+  return( 
+  
+    <div className = "Logs">
       <table> 
         <tr> 
           <th>Action</th>
@@ -21,5 +22,6 @@ export function Logs() {
         })}
       </table>
     </div>
+   
   )
 }

@@ -1,22 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
-
-
-function HomePage() {
-  return ( 
-    <div>
-      <li> 
-        <Link to='/'></Link>
-      </li>
-      <li> 
-        <Link to='/'></Link>
-      </li>
-      <li> 
-        <Link to='/'></Link>
-      </li>
-      <li> 
-        <Link to='/'></Link>
-      </li>
-    </div> 
-  )
+export default function Home() {
+  return (
+  <div className = "HomePage">
+    <h1> Home </h1>
+    </div>
+  );
 }
