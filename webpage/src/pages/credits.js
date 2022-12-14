@@ -1,3 +1,7 @@
 export default function Credits() {
-    return <h1> credits </h1>
+    return (
+    <div className = "CreditsPage">
+    <h1> Credits </h1>
+    </div>
+    )
 }
