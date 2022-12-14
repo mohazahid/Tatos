@@ -5,8 +5,7 @@
 
 body {
     margin: 0;
-    background-image:url("");
-    background: radial-gradient(circle at 50% 50%, #185c27, #166317, #266b14, #3a7211, #52790e, #6f800a, #887f06, #8f6701);
+    background-image:url("Images/BackgroundColor.png");
 
 }
 
