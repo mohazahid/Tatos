@@ -8,21 +8,24 @@ using UnityEngine.SceneManagement;
 public class playerTutorial : MonoBehaviour
 {
     int randInt;
-    public static bool potatoGone = false;      
     public double times = .2;
     private double HealthTimer = 0;
     Animator anim;
-    GameObject[] PotatoCount;
+    public static int potatoCount = 0;
     private AudioSource playerSound;
     public int rockCount;
     private int rockCountMax = 5;
     public int maxHealth = 100;
     public int currentHealth;
     public TMP_Text RockValue;
+    public GameObject Potato;
     public HealthBar healthBar;
     public AudioClip[] footsteps;
+    public static bool SprintCoolDown = false;
+    public StaminaBar staminaBar;
     // Add the variables
-    private float speed = 50f; // Speed variable
+    public static float speed = 35f; // Speed variable
+    public float baseSeed = 35f;
     public Rigidbody2D rb; // Set the variable 'rb' as Rigibody
     public Vector2 movement; // Set the variable 'movement' as a Vector3 (x,y,z)
 
@@ -37,6 +40,9 @@ public class playerTutorial : MonoBehaviour
         playerSound = GetComponent<AudioSource>();
         rockCount = 3;
         RockValue.text = rockCount.ToString() + "/5";
+        potatoCount = 0;
+        SprintCoolDown = false;
+        speed = 35f;
     }
 
 
@@ -51,7 +57,6 @@ public class playerTutorial : MonoBehaviour
         float input_y = Input.GetAxisRaw("Vertical");
         bool Walking = (Mathf.Abs(input_x) + Mathf.Abs(input_y)) > 0;
         RockValue.text = rockCount.ToString() + "/5";
-        PotatoCount = GameObject.FindGameObjectsWithTag("Collectible");
         anim.SetBool("Walking", Walking);
         if (Walking)
         {
@@ -65,12 +70,26 @@ public class playerTutorial : MonoBehaviour
                 playerSound.clip = footsteps[randInt];
                 playerSound.Play();
             }
+
         }
-        if (potatoGone) {
-            potatoGone = false;
-            SceneManager.LoadScene("MainMenu");    
-            
+        else
+        {
+            playerSound.enabled = false;
         }
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            if (staminaBar.Stamina > 0 && Walking)
+            {
+                staminaBar.UseStaminaTutorial(.15f);
+            }
+
+        }
+        else
+        {
+            speed = baseSeed;
+        }
+
+        FirstPotato();
     }
 
     // 'FixedUpdate' Method is used for Physics movements
@@ -99,10 +118,18 @@ public class playerTutorial : MonoBehaviour
     {
         if (other.gameObject.tag == "SpawningRock")
         {
+            if (other.gameObject.tag == "Enemy")
+            {
+                TakeDamage();
+            }
             if (rockCount < rockCountMax)
             {
                 rockCount++;
             }
+        }
+        if (other.gameObject.tag == "Collectible")
+        {
+            potatoCount++;
         }
     }
 
@@ -117,5 +144,19 @@ public class playerTutorial : MonoBehaviour
             HealthTimer = .4;
         }
 
+    }
+    void FirstPotato()
+    {
+
+        if (potatoCount == 1)
+        {
+            Time.timeScale = 0f;
+            Potato.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Time.timeScale = 1f;
+                SceneManager.LoadScene("MainMenu");
+            }
+        }
     }
 }

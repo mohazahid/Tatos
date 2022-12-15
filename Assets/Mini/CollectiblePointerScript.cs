@@ -8,7 +8,7 @@ public class CollectiblePointerScript : MonoBehaviour
     public GameObject Player;
     private GameObject[] collectibles;
     public GameObject closestCollectible;
-    float hideDistance = 100;
+    float hideDistance = 150;
     public GameObject Arrow;
 
     void Start()
@@ -34,19 +34,20 @@ public class CollectiblePointerScript : MonoBehaviour
         if (collectibles.Length > 0)
         {
             FindClosest();
-            if (closestCollectible!= null) {
-            var dir = closestCollectible.transform.position - Player.transform.position;
-            if (dir.magnitude < hideDistance)
+            if (closestCollectible != null)
             {
-                SetArrowActive(false);
-            }
-            else
-            {
-                SetArrowActive(true);
-            }
-            var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            Debug.Log("Closest Collectible: " + closestCollectible.name);
+                var dir = closestCollectible.transform.position - Player.transform.position;
+                if (dir.magnitude < hideDistance)
+                {
+                    SetArrowActive(false);
+                }
+                else
+                {
+                    SetArrowActive(true);
+                }
+                var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+                Debug.Log("Closest Collectible: " + closestCollectible.name);
             }
         }
 
@@ -56,24 +57,27 @@ public class CollectiblePointerScript : MonoBehaviour
     {
         if (collectibles.Length > 0)
         {
-            if ( closestCollectible !=null) {
-            
-            var dist = Vector3.Distance(Player.transform.position, closestCollectible.transform.position);
-            for (int i = 0; i < collectibles.Length; i++)
+            if (closestCollectible != null)
             {
-                var tempDist = Vector3.Distance(Player.transform.position, collectibles[i].transform.position);
-                if (tempDist < dist)
+
+                var dist = Vector3.Distance(Player.transform.position, closestCollectible.transform.position);
+                for (int i = 0; i < collectibles.Length; i++)
                 {
-                    closestCollectible = collectibles[i];
+                    var tempDist = Vector3.Distance(Player.transform.position, collectibles[i].transform.position);
+                    if (tempDist < dist)
+                    {
+                        closestCollectible = collectibles[i];
+                    }
                 }
             }
-            } else {
-                if (collectibles.Length > 0)    
+            else
+            {
+                if (collectibles.Length > 0)
                 {
                     closestCollectible = collectibles[0];
                 }
-                
-            }   
+
+            }
         }
     }
     void SetArrowActive(bool value)

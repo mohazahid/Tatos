@@ -20,8 +20,14 @@ public class Player : MonoBehaviour
     public TMP_Text RockValue;
     public HealthBar healthBar;
     public AudioClip[] footsteps;
+    public GameObject Hurt;
+    private AudioSource HurtAudio;
+    public StaminaBar staminaBar;
+    public static bool SprintCoolDown = false;
     // Add the variables
-    private float speed = 50f; // Speed variable
+    public static float speed = 35f; // Speed variable
+    public static float baseSpeed = 35f;
+    public static float SprintSpeed = 60f;
     public Rigidbody2D rb; // Set the variable 'rb' as Rigibody
     public Vector2 movement; // Set the variable 'movement' as a Vector3 (x,y,z)
 
@@ -36,6 +42,12 @@ public class Player : MonoBehaviour
         playerSound = GetComponent<AudioSource>();
         rockCount = 3;
         RockValue.text = rockCount.ToString() + "/5";
+        HurtAudio = Hurt.GetComponent<AudioSource>();
+        potatoCount = 0;
+        SprintCoolDown = false;
+        speed = 35f;
+        baseSpeed = 35f;
+        SprintSpeed = 60f;
     }
 
 
@@ -72,7 +84,21 @@ public class Player : MonoBehaviour
         {
             playerSound.enabled = false;
         }
-
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            if (staminaBar.Stamina > 0 && Walking) 
+            {
+                staminaBar.UseStamina(.15f);
+            }
+            else
+            {
+                speed = baseSpeed;
+            }
+        }
+        else
+        {
+            speed = baseSpeed;
+        }
     }
 
     // 'FixedUpdate' Method is used for Physics movements
@@ -89,7 +115,9 @@ public class Player : MonoBehaviour
         }
         if (currentHealth <= 0)
         {
+
             SceneManager.LoadScene("EndScreen");
+
         }
     }
     /// <summary>
@@ -117,6 +145,7 @@ public class Player : MonoBehaviour
         if (HealthTimer <= 0)
         {
             currentHealth -= 10;
+            HurtAudio.Play();
             healthBar.SetHealth(currentHealth);
             HealthTimer = .4;
         }

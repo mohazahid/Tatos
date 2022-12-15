@@ -11,7 +11,7 @@ public class setVolume : MonoBehaviour
     public AudioMixer mixer;
     void Awake()   
    {
-        mySlider.value = PlayerPrefs.GetFloat("MusicVolume", 0.75f);
+        mySlider.value = PlayerPrefs.GetFloat("MusicVolume", 0.2f);
     }
     public void setLevel(float SliderVal) 
     {
