@@ -23,6 +23,7 @@ body {
     align-items: center;
     gap: 1rem;
     padding: 1rem;
+    border: 1px solid black;
     
 }
 .CreditsPage {
@@ -31,5 +32,28 @@ body {
     align-items: center;
     gap: 1rem;
     padding: 1rem;
+    
+}
+.TextBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid black;
+    
+    
+}
+.TextDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid black;
+    width: 100%;
+    Height: 100%;
     
 }

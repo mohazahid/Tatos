@@ -8,7 +8,6 @@ export default function Navbar() {
                 <CustomLink to= "/game"> Game </CustomLink>
                 <CustomLink to= "/credits"> Credits </CustomLink>
                 <CustomLink to= "/logs"> Logs </CustomLink>
-            
         </ul>
         </nav>
     );
