@@ -1,6 +1,6 @@
 # Tatos
 UWB Au CSS 385 A Team 5
-- Mahammad Zahid
+- Mohammad Zahid
 - Abhimanyu Kumar
 - Martin Matsudaira
 
@@ -11,7 +11,7 @@ UWB Au CSS 385 A Team 5
 https://mohazahid.github.io/Tatos/
 
 ## Website Link
-https://adyanzah.wixsite.com/tatos/game
+https://adyanzah.wixsite.com/tatos/
 
 ## Brief
 Tatos is a 2D top down thriller game where you have to find and collect potatoes in a map. As you are collecting the potatoes, the corrupt potato will be chasing you down and you have to avoid him. If he gets too close, you can stun him by throwing a rock in his direction. If you want to see better, you must find the lantern. You must find all 8 potatoes before the corrupt potato gets you to win the game. Explore, collect, avoid, and win the game.
